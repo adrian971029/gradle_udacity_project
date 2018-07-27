@@ -1,5 +1,6 @@
 package com.udacity.gradle.builditbigger.backend;
 
+import com.adrian_971029.libjavapiadas.Piadas;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
@@ -23,6 +24,24 @@ public class MyEndpoint {
     public MyBean sayHi(@Named("name") String name) {
         MyBean response = new MyBean();
         response.setData("Hi, " + name);
+
+        return response;
+    }
+
+    @ApiMethod(name = "falaPiadaBoa")
+    public MyBean falaPiadaBoa() {
+        MyBean response = new MyBean();
+        Piadas mPiada = new Piadas();
+        response.setData(mPiada.boaPiada1());
+
+        return response;
+    }
+
+    @ApiMethod(name = "falaPiadaRuim")
+    public MyBean falaPiadaRuim() {
+        MyBean response = new MyBean();
+        Piadas mPiada = new Piadas();
+        response.setData(mPiada.ruimPiada1());
 
         return response;
     }
